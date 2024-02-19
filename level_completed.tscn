@@ -16,6 +16,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(80, 8)
 layout_mode = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="Label" type="Label" parent="CenterContainer/ColorRect"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 7.0
+theme_override_colors/font_color = Color(0, 0.811765, 0, 1)
 text = "Level Completed!"
