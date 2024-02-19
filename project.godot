@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="1bit_man"
-run/main_scene="res://world.tscn"
+run/main_scene="res://level_one.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
 [autoload]
 
 Events="*res://events.gd"
+LevelTransition="*res://level_transition.tscn"
 
 [display]
 
