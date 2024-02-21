@@ -11,6 +11,10 @@ var start_level_msec
 @onready var level_time_label = %LevelTimeLabel
 
 func _ready():
+	if not next_Level is PackedScene:
+		level_completed.next_level_button.text = "Victory!"
+		next_Level = load("res://victory_screen.tscn")
+		
 	Events.level_completed.connect(show_level_completed)
 	get_tree().paused = true
 	LevelTransition.fade_from_black()
