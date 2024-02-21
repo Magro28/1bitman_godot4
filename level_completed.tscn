@@ -1,12 +1,16 @@
-[gd_scene format=3 uid="uid://dcefs18hmlmxr"]
+[gd_scene load_steps=2 format=3 uid="uid://dcefs18hmlmxr"]
+
+[ext_resource type="Script" path="res://level_completed.gd" id="1_mmb46"]
 
 [node name="LevelCompleted" type="ColorRect"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.0941176)
+script = ExtResource("1_mmb46")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -16,16 +20,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
-custom_minimum_size = Vector2(80, 8)
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-color = Color(0.392157, 0.392157, 0.392157, 1)
 
-[node name="Label" type="Label" parent="CenterContainer/ColorRect"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-offset_left = 9.0
-offset_top = 1.0
-offset_right = 70.0
-offset_bottom = 7.0
 theme_override_colors/font_color = Color(0, 0.811765, 0, 1)
 text = "Level Completed!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+text = "Retry"
+
+[node name="NextLevelButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+text = "Next Level"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]

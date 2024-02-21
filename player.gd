@@ -16,6 +16,7 @@ var was_wall_normal = Vector2.ZERO
 @onready var starting_position = global_position
 
 
+
 func _physics_process(delta):
 
 	apply_gravity(delta)
@@ -67,6 +68,7 @@ func handle_jump():
 	if is_on_floor() or coyote_jump_timer.time_left > 0.0:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = movement_data.jump_velocity
+			coyote_jump_timer.stop()
 	elif not is_on_floor():
 		if Input.is_action_just_released("jump") and velocity.y < movement_data.jump_velocity / 2:
 			velocity.y = movement_data.jump_velocity / 2
