@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqkx5w2mmttga"]
+[gd_scene load_steps=3 format=3 uid="uid://dqkx5w2mmttga"]
 
 [ext_resource type="Script" path="res://victory_screen.gd" id="1_1li66"]
+[ext_resource type="Texture2D" uid="uid://hsytgf7nqksc" path="res://assets/victory.jpg" id="2_55nib"]
 
 [node name="VictoryScreen" type="CenterContainer"]
 anchors_preset = 15
@@ -13,7 +14,12 @@ script = ExtResource("1_1li66")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_55nib")
+
 [node name="WinLabel" type="Label" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "You won!"
 horizontal_alignment = 1
@@ -22,6 +28,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 16)
 layout_mode = 2
+size_flags_vertical = 4
 text = "Return to Main Menu"
 
 [connection signal="pressed" from="VBoxContainer/BacktoMenuButton" to="." method="_on_button_pressed"]
