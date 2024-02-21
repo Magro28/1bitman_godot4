@@ -36,8 +36,9 @@ func retry():
 func go_to_next_level():
 	if not next_Level is PackedScene: return
 	await LevelTransition.fade_to_black()
-	get_tree().paused = false
-	get_tree().change_scene_to_packed(next_Level)
+	if get_tree():
+		get_tree().paused = false
+		get_tree().change_scene_to_packed(next_Level)
 	
 
 func show_level_completed():
